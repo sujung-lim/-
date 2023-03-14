@@ -5,56 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>표만들기</title>
-
     <style>
+        .table-cap {
+            caption-side: bottom;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        table {
+            text-align: center;
+            width: 100%;
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5 10px;
+        }
+
+        th {
+            background-color: lightgray;
+        }
     </style>
 </head>
 
 <body>
-    <table border="1">
-        <caption>2023학년도 대학수능능력시험 성적통지표</caption>
+    <table>
+        <caption class="table-cap">2023학년도 대학수능능력시험 성적통지표</caption>
         <thead>
             <tr>
                 <th>구분</th>
-                <th>한국사 영역</th>
+                <th rowspan="2">한국사 영역</th>
                 <th>국어 영역</th>
                 <th>수학 영역</th>
-                <th>영어 영역</th>
-                <th>탐구 영역</th>
-
-                <th>제 2외국어 / 한문 영역</th>
+                <th rowspan="2">영어 영역</th>
+                <th colspan="2">탐구 영역</th>
+                <th>제 2외국어<br> / 한문 영역</th>
             </tr>
             <tr>
                 <th>선택과목</th>
-
                 <th>화법과 작문</th>
                 <th>확률과 통계</th>
                 <th>생활과 윤리</th>
                 <th>지구 과학1</th>
-
                 <th>독일어</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th>표준점수</th>
-                <td>&nbsp;</td>
+                <td rowspan="2">&nbsp;</td>
                 <td>131</td>
                 <td>137</td>
-                <td>&nbsp;</td>
+                <td rowspan="2">&nbsp;</td>
                 <td>53</td>
                 <td>64</td>
-                <td>&nbsp;</td>
+                <td rowspan="2">&nbsp;</td>
             </tr>
             <tr>
                 <th>백분위</th>
-                <td>&nbsp;</td>
                 <td>93</td>
                 <td>95</td>
-                <td>&nbsp;</td>
                 <td>75</td>
-                <td>93</td>
-                <td>&nbsp;</td>
+                <td>73</td>
             </tr>
         </tbody>
         <tfoot>
