@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 캐릭터 사이즈 */
+.character {
+    position: absolute;
+    margin: 50px auto;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 얼굴 */
+.character .face {
+    position: absolute;
+    width: 80%;
+    height: 95%;
+    border-radius: 50%;
+    bottom: 0;
+    background-color: #fedbb8;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 뒷머리 */
+.hair {
+    width: 100%;
+    height: 90%;
+    background-color: rgb(34, 31, 31);
+    border-radius: 30% 30% 0 0;
+    position: absolute;
+}
+
+/* 앞머리 */
+.hair-bangs {
+    width: 80%;
+    height: 35%;
+    background-color: rgb(34, 31, 31);
+    position: absolute;
+    z-index: 1;
+    border-radius: 50% 50% 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 눈 */
+.eye {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.eye.left {
+    top: 100;
+    left: 60;
+    z-index: 1;
+}
+
+.eye.right {
+    top: 100;
+    right: 60;
+    z-index: 1;
+}
+
+/* 다크서클  */
+.eyebags {
+    width: 30px;
+    height: 40px;
+    background-color: #8f9292;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.eyebags.left {
+    top: 100;
+    left: 60;
+}
+
+.eyebags.right {
+    top: 100;
+    right: 60;
+}
+
+/* 노트북 */
+.laptop {
+    width: 65%;
+    height: 45%;
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+    background-color: #bfc0c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.laptop .logo path {
+    fill: white;
+
+}
+
+.laptop .logo svg {
+    width: 30px;
+    height: 30px;
+}
