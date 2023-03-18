@@ -9,45 +9,84 @@
 </head>
 
 <body>
-    <img src="./image/Cola-logo.svg" alt="콜라" class="logo">
+    <img src="./image/Cola-logo.svg" alt="cola콜라" class="logo">
     <div class="container-flex">
+        <!-- 왼쪽 박스 -->
         <div class="vending-left">
+            <!-- 왼쪽 박스 음료수 리스트 -->
             <div class="container-grid">
                 <div class="vending-drinks red">
-                    <img src="./image/red-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                    <img class="drink-image" src="./image/red-cola.svg" alt="cola">
+                    <p>Original_Cola</p>
+                    <button>1000원</button>
                 </div>
-                <div class="vending-drinks red-soldout">
-                    <img src="./image/red-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                <div class="vending-drinks violet soldout">
+                    <img class="drink-image" src="./image/purple-cola.svg" alt="cola">
+                    <p>Violet_Cola</p>
+                    <button>1000원</button>
                 </div>
                 <div class="vending-drinks yellow">
-                    <img src="./image/yellow-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                    <img class="drink-image" src="./image/yellow-cola.svg" alt="cola">
+                    <p>Yellow_Cola</p>
+                    <button>1000원</button>
                 </div>
                 <div class="vending-drinks blue">
-                    <img src="./image/blue-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                    <img class="drink-image" src="./image/blue-cola.svg" alt="cola">
+                    <p>Cool_Cola</p>
+                    <button>1000원</button>
                 </div>
                 <div class="vending-drinks green">
-                    <img src="./image/green-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                    <img class="drink-image" src="./image/green-cola.svg" alt="cola">
+                    <p>Green_Cola</p>
+                    <button>1000원</button>
                 </div>
                 <div class="vending-drinks orange">
-                    <img src="./image/orange-cola.svg" alt="">
-                    <p></p>
-                    <button></button>
+                    <img class="drink-image" src="./image/orange-cola.svg" alt="cola">
+                    <p>Orange_Cola</p>
+                    <button>1000원</button>
                 </div>
             </div>
-            <div class="vending-pay"></div>
-            <div class="vending-order"></div>
+            <!-- 왼쪽 박스 결제 관련 -->
+            <div class="container-balance">
+                <div class="vending-balance">
+                    <p class="balance-left">잔액:</p>
+                    <p class="balance-right">1000원</p>
+                </div>
+                <button class="btn-change">거스름돈 반환</button>
+            </div>
+            <div class="container-insert">
+                <input class="input-insert" type="text" placeholder="입금액 입력">
+                <button class="btn-insert">입금</button>
+            </div>
+            <!-- 왼쪽 박스 선택된 음료수  -->
+            <div class="container-checked">
+                <div class="vending-checked">
+                    <div class="drink-checked">
+                        <img class="drink-checked-red" src="./image/red-cola.svg" alt="cola">
+                        <p>Original_Cola</p>
+                        <div class="quantity">1</div>
+                    </div>
+                    <div class="drink-checked">
+                        <img class="drink-checked-green" src="./image/green-cola.svg" alt="cola">
+                        <p>Green_Cola</p>
+                        <div class="quantity">2</div>
+                    </div>
+                    <div class="drink-checked">
+                        <img class="drink-checked-orange" src="./image/orange-cola.svg" alt="cola">
+                        <p>Orange_Cola</p>
+                        <div class="quantity">1</div>
+                    </div>
+                    <div class="drink-checked">
+                        <img class="drink-checked-violet" src="./image/purple-cola.svg" alt="cola">
+                        <p>Violet_Cola</p>
+                        <div class="quantity">5</div>
+                    </div>
+                </div>
+                <button class="get-drink">획득</button>
+            </div>
         </div>
 
+        <!-- 오른쪽 박스 -->
         <div class="vending-right">
             <div class="vending-ownMoney">
             </div>
