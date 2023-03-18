@@ -1,0 +1,89 @@
+body {
+    background-color: lavender;
+    margin: 0;
+    /* reset margin */
+}
+
+img.logo {
+    width: 386px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 67px;
+}
+
+/* 왼쪽 박스 */
+.vending-left {
+    width: 360px;
+    height: 545px;
+    box-shadow: inset 0 0 30px slateblue;
+}
+
+/* 음료수 */
+.vending-left .container-grid {
+    display: grid;
+    width: 306px;
+    height: 272px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "r r-soldout y"
+        "b g p";
+}
+
+.vending-left .vending-drinks {
+    box-shadow: inset 0 0 10px yellow;
+    width: 94px;
+    height: 130px;
+}
+
+.vending-drinks.red {
+    grid-area: r;
+}
+
+.vending-drinks.red-soldout {
+    grid-area: r-soldout;
+}
+
+.vending-drinks.yellow {
+    grid-area: y;
+}
+
+.vending-drinks.blue {
+    grid-area: b;
+}
+
+.vending-drinks.green {
+    grid-area: g;
+}
+
+.vending-drinks.purple {
+    grid-area: p;
+}
+
+/* 오른쪽 박스 */
+.vending-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vending-right .vending-ownMoney {
+    width: 360px;
+    height: 50px;
+    box-shadow: 0 0 30px red;
+}
+
+.vending-right .vending-list {
+    width: 381px;
+    height: 507px;
+    box-shadow: 0 0 30px green;
+}
