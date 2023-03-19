@@ -64,22 +64,22 @@
                     <div class="drink-checked">
                         <img class="drink-checked-red" src="./image/red-cola.svg" alt="cola">
                         <p>Original_Cola</p>
-                        <div class="quantity">1</div>
+                        <div class="quantity-checked">1</div>
                     </div>
                     <div class="drink-checked">
                         <img class="drink-checked-green" src="./image/green-cola.svg" alt="cola">
                         <p>Green_Cola</p>
-                        <div class="quantity">2</div>
+                        <div class="quantity-checked">2</div>
                     </div>
                     <div class="drink-checked">
                         <img class="drink-checked-orange" src="./image/orange-cola.svg" alt="cola">
                         <p>Orange_Cola</p>
-                        <div class="quantity">1</div>
+                        <div class="quantity-checked">1</div>
                     </div>
                     <div class="drink-checked">
                         <img class="drink-checked-violet" src="./image/purple-cola.svg" alt="cola">
                         <p>Violet_Cola</p>
-                        <div class="quantity">5</div>
+                        <div class="quantity-checked">5</div>
                     </div>
                 </div>
                 <button class="get-drink">획득</button>
@@ -88,15 +88,40 @@
 
         <!-- 오른쪽 박스 -->
         <div class="vending-right">
-            <div class="vending-ownMoney">
+            <div class="container-inHand">
+                <div class="vending-inHand">
+                    <p class="inHand-left">소지금:</p>
+                    <p class="inHand-right">25,000원</p>
+                </div>
             </div>
 
-            <div class="vending-list">
-                <li class="vendidng-drink"></li>
-                <li class="vendidng-drink"></li>
-                <li class="vendidng-drink"></li>
-                <li class="vendidng-drink"></li>
-                <p class="vending-total"></p>
+            <div class="vending-bill">
+                <p class="bill-get-drink">획득한 음료</p>
+                <div class="bill-list">
+                    <ul>
+                        <li class="drink-bill">
+                            <img src="./image/red-cola.svg" alt="">
+                            <p>Original_Cola</p>
+                            <div class="quantity-bill">1</div>
+                        </li>
+                        <li class="drink-bill">
+                            <img src="./image/green-cola.svg" alt="">
+                            <p>Green_Cola</p>
+                            <div class="quantity-bill">2</div>
+                        </li>
+                        <li class="drink-bill">
+                            <img src="./image/orange-cola.svg" alt="">
+                            <p>Orange_Cola</p>
+                            <div class="quantity-bill">1</div>
+                        </li>
+                        <li class="drink-bill">
+                            <img src="./image/purple-cola.svg" alt="">
+                            <p>Violet_Cola</p>
+                            <div class="quantity-bill">5</div>
+                        </li>
+                    </ul>
+                </div>
+                <p class="vending-total">총금액 : 9,000원</p>
             </div>
         </div>
     </div>
