@@ -1,0 +1,364 @@
+:root {
+    --deep-purple: #6327FE;
+    --light-purple: #EAE8FE;
+    --gray: #bdbdbd;
+}
+
+body {
+    background-color: var(--light-purple);
+    margin: 0;
+    /* reset margin */
+}
+
+img.logo {
+    width: 386px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 67px;
+}
+
+/* 왼쪽 박스 */
+.vending-left {
+    width: 360px;
+    height: 545px;
+    background-color: #fff;
+    padding-top: 31px;
+    box-sizing: border-box;
+}
+
+/* 왼쪽 박스 - 음료수 */
+.vending-left .container-grid {
+    display: grid;
+    width: 306px;
+    height: 272px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "r v y"
+        "b g o";
+    gap: 12px;
+    margin: 0 auto;
+
+}
+
+.vending-left .vending-drinks {
+    width: 94px;
+    height: 130px;
+}
+
+.vending-drinks.red {
+    grid-area: r;
+    border: 3px solid var(--deep-purple);
+    border-radius: 10px;
+}
+
+.vending-drinks.violet {
+    grid-area: v;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: relative;
+}
+
+.vending-drinks.yellow {
+    grid-area: y;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.vending-drinks.blue {
+    grid-area: b;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.vending-drinks.green {
+    grid-area: g;
+    border: 3px solid var(--deep-purple);
+    border-radius: 10px;
+}
+
+.vending-drinks.orange {
+    grid-area: o;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.drink-image {
+    display: block;
+    margin: auto;
+    margin-top: 11px;
+}
+
+.vending-drinks p {
+    font-size: 9px;
+    font-weight: 500;
+    text-align: center;
+    height: 0;
+    padding-bottom: 7px;
+}
+
+/* 왼쪽 박스 - 천 원 버튼 */
+.vending-drinks button {
+    display: block;
+    margin: auto;
+    width: 70px;
+    height: 22px;
+    background-color: var(--deep-purple);
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+/* 왼쪽 박스 - 잔액 */
+.container-balance,
+.container-insert {
+    display: flex;
+    height: 33px;
+    justify-content: space-between;
+}
+
+.container-balance {
+    margin: 20px 27px 11px;
+}
+
+.vending-balance {
+    display: flex;
+    width: 200px;
+    background-color: var(--light-purple);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 6px 10px 7px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* 왼쪽 박스 - 거스름돈 반환 */
+.btn-change,
+.btn-insert {
+    width: 94px;
+    font-size: 13px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+/* 왼쪽 박스 -입금 */
+.container-insert {
+    margin: 11px 27px;
+}
+
+.input-insert {
+    border: 1px solid var(--gray);
+    width: 200px;
+    font-size: 13px;
+    padding-left: 6px;
+    border-radius: 5px;
+}
+
+/* 입금액 입력 클릭시 색 변경 */
+.input-insert:focus {
+    outline: 2px solid var(--deep-purple);
+}
+
+/* 왼쪽 박스 - 선택된 음료수 */
+.container-checked {
+    display: flex;
+    height: 106px;
+    margin: 11px 27px;
+    justify-content: space-between;
+}
+
+.vending-checked {
+    background-color: var(--light-purple);
+    width: 200px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid var(--gray);
+}
+
+.vending-checked::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 5px;
+}
+
+.vending-checked::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.vending-checked::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: var(--light-purple);
+}
+
+.drink-checked {
+    display: flex;
+    width: 170px;
+    height: 46px;
+    background-color: #fff;
+    margin: 12px 18px 6px 12px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.drink-checked p {
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.drink-checked img {
+    width: 18px;
+    height: 33px;
+}
+
+/* 왼쪽 박스 - 선택된 음료수 개수 */
+.drink-checked .quantity-checked {
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--gray);
+    width: 30;
+    height: 30;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 4px 11px 6px;
+}
+
+/* 왼쪽 박스 - 획득 버튼 */
+.get-drink {
+    width: 94px;
+    background-color: var(--deep-purple);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* 오른쪽 박스 */
+.vending-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    margin-left: 28px;
+}
+
+/* 오른쪽 박스 - 소지금 */
+
+.container-inHand {
+    width: 360px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vending-inHand {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light-purple);
+    width: 306px;
+    height: 32px;
+    align-items: center;
+    border-radius: 5px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+}
+
+.inHand-left {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inHand-right {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* 오른쪽 박스 - 획득한 음료 */
+
+.vending-bill {
+    width: 360px;
+    height: 475px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 20px solid var(--light-purple);
+}
+
+.vending-bill p.bill-get-drink {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 21px;
+    margin-bottom: 13px;
+}
+
+/* 오른쪽 박스 - 획득한 음료 리스트 */
+.bill-list {
+    background-color: var(--light-purple);
+    width: 306px;
+    height: 364px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+}
+
+.bill-list ul {
+    padding: 0;
+}
+
+.bill-list li {
+    width: 276px;
+    height: 46px;
+    background-color: #fff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 18px 6px 12px;
+    border-radius: 5px;
+    padding: 8px;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.bill-list li img {
+    width: 18px;
+    height: 33px;
+    margin-right: 10px;
+}
+
+.bill-list li p {
+    margin-right: auto;
+}
+
+.bill-list li .quantity-bill {
+    border: 1px solid var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 4px 11px 6px;
+    box-sizing: border-box;
+}
+
+.vending-bill .vending-total {
+    align-self: flex-end;
+    margin-right: 38px;
+    margin-top: 6px;
+}
