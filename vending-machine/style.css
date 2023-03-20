@@ -8,6 +8,7 @@ body {
     background-color: var(--light-purple);
     margin: 0;
     /* reset margin */
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 img.logo {
@@ -47,7 +48,6 @@ img.logo {
         "b g o";
     gap: 12px;
     margin: 0 auto;
-
 }
 
 .vending-left .vending-drinks {
@@ -61,12 +61,46 @@ img.logo {
     border-radius: 10px;
 }
 
+/* 품절 음료 */
 .vending-drinks.violet {
     grid-area: v;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     position: relative;
 }
+
+.vending-drinks.violet .soldout {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.vending-drinks.violet .soldout img,
+.vending-drinks.violet .soldout p,
+.vending-drinks.violet .soldout button {
+    filter: brightness(50%);
+}
+
+.soldout-text {
+    color: var(--light-purple);
+    position: absolute;
+    width: 52px;
+    height: 27px;
+    border: 2px solid var(--light-purple);
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: var(--light-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 55.77px;
+    left: 19.23px;
+    transform: rotate(-17.79deg);
+}
+
+/* */
 
 .vending-drinks.yellow {
     grid-area: y;
@@ -155,7 +189,7 @@ img.logo {
     border-radius: 5px;
 }
 
-/* 왼쪽 박스 -입금 */
+/* 왼쪽 박스 - 입금 */
 .container-insert {
     margin: 11px 27px;
 }
@@ -166,6 +200,14 @@ img.logo {
     font-size: 13px;
     padding-left: 6px;
     border-radius: 5px;
+}
+
+/* 거스름돈 반환, 입금 눌렀을 때 */
+.btn-change:active,
+.btn-insert:active {
+    background-color: var(--gray);
+    opacity: 0.8;
+    color: #fff;
 }
 
 /* 입금액 입력 클릭시 색 변경 */
@@ -192,17 +234,18 @@ img.logo {
 
 .vending-checked::-webkit-scrollbar {
     width: 4px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .vending-checked::-webkit-scrollbar-thumb {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .vending-checked::-webkit-scrollbar-track {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--light-purple);
+    border-right: 10px solid var(--light-purple);
 }
 
 .drink-checked {
@@ -241,9 +284,14 @@ img.logo {
 .get-drink {
     width: 94px;
     background-color: var(--deep-purple);
+    opacity: 1;
     border: none;
     border-radius: 5px;
     color: #fff;
+}
+
+.get-drink:active {
+    opacity: 0.8;
 }
 
 /* 오른쪽 박스 */
@@ -287,7 +335,7 @@ img.logo {
     font-weight: 700;
 }
 
-/* 오른쪽 박스 - 획득한 음료 */
+/* 오른쪽 박스 - 획득한 음료 텍스트 */
 
 .vending-bill {
     width: 360px;
@@ -313,6 +361,19 @@ img.logo {
     display: flex;
     justify-content: center;
     border: 1px solid var(--gray);
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.bill-list::-webkit-scrollbar {
+    background-color: var(--light-purple);
+    border-radius: 5px;
+    width: 6px;
+}
+
+.bill-list::-webkit-scrollbar-thumb {
+    background-color: #fff;
     border-radius: 5px;
 }
 
