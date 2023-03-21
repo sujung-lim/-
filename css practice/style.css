@@ -1,0 +1,129 @@
+:root {
+	font-family: 'Montserrat', sans-serif;
+	/*
+	font-weight: 500;
+	font-weight: 700;
+	*/
+	--light-purple-color: #bd8fe8;
+	--dark-purple-color: #673399;
+	--whitish-color: rgb(230, 224, 235);
+}
+
+body,
+h1,
+h2,
+p,
+span,
+ul,
+li {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: var(--dark-purple-color);
+}
+
+main,
+section.wrapper,
+article,
+.img-text-container {
+	width: 1080px;
+}
+
+main {
+	margin: 0 auto;
+}
+
+
+/* 제목 */
+.title {
+	display: flex;
+	margin: 100px 0;
+}
+
+h1 {
+	font-size: 40px;
+	color: var(--whitish-color);
+}
+
+
+.title p::before {
+	content: "";
+	width: 150px;
+	height: 1px;
+	background-color: var(--light-purple-color);
+	margin-right: 20px;
+}
+
+.title p {
+	font-size: 14px;
+	color: var(--light-purple-color);
+	display: flex;
+	align-items: center;
+}
+
+
+/* 섹션 */
+
+.img-text-container {
+	display: flex;
+	margin-bottom: 24px;
+}
+
+.img-text-container.reverse {
+	flex-direction: row-reverse;
+}
+
+
+/* 이미지 */
+.image-wrapper {
+	width: 26%;
+	height: 100%;
+	position: relative;
+}
+
+.image-wrapper img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	vertical-align: top;
+}
+
+.image-wrapper span {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	color: var(--whitish-color);
+	background-color: rgba(112, 54, 140, 0.4);
+}
+
+/* 텍스트 박스 */
+.text-wrapper {
+	width: 74%;
+	height: auto;
+	background-color: #fff;
+	padding: 24px;
+}
+
+.text-wrapper h2 {
+	font-size: 18px;
+	color: var(--dark-purple-color);
+	margin-bottom: 32px;
+}
+
+ul li {
+	font-size: 14px;
+	color: rgb(93, 92, 92);
+}
+
+ul li::marker {
+	font-size: 20px;
+	color: var(--light-purple-color);
+}
