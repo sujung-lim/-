@@ -52,7 +52,6 @@ section.calendar {
 
 .calendar-h1 span {
 	box-shadow: inset 0 -20px 0 white;
-	;
 }
 
 .calendar-btn {
@@ -74,13 +73,60 @@ section.calendar {
 
 .calendar-section {
 	width: 100%;
+	background-color: #fff;
+	margin-bottom: 100px;
 }
 
 .calendar-section img {
 	width: 100%;
 }
 
+ul.calendar-list {
+	display: flex;
+	gap: 5px;
+	font-size: 12px;
+	margin: 24px;
+}
 
+.calendar-list li {
+	color: var(--dark-purple-color);
+	background-color: #f1e0f8;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.calendar-section h2 {
+	min-height: 60px;
+	font-size: 24px;
+	margin: 24px 24px 32px 24px;
+	color: rgb(37, 35, 35);
+}
+
+.calendar-section p {
+	min-height: 150px;
+	font-size: 14px;
+	margin: 32px 24px 24px 24px;
+	color: #969696;
+}
+
+.calendar-section span {
+	display: block;
+	margin-left: 24px;
+	height: 68px;
+	align-items: center;
+	font-size: 12px;
+	color: #969696;
+}
+
+
+.calendar-section span::before {
+	content: "";
+	display: block;
+	margin-bottom: 24px;
+	width: 100%;
+	height: 2px;
+	background-color: #ccc9c9;
+}
 
 /* 보라색 섹션 */
 section.portfolio {
@@ -197,4 +243,38 @@ ul.portfolio-list {
 	display: inline-block;
 	border-radius: 50%;
 	margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+
+	.calendar-header,
+	.calendar-wrapper,
+	.portfolio-title,
+	.portfolio-wrapper {
+		width: 356px;
+		margin: auto;
+	}
+
+	.calendar-header,
+	.portfolio-title {
+		flex-direction: column;
+		padding: 100px 0 50px 0;
+	}
+
+	.calendar-header button {
+		margin-top: 36px;
+	}
+
+	.calendar-wrapper {
+		flex-direction: column;
+	}
+
+	.calendar-section {
+		margin-bottom: 36px;
+	}
+
+
+
+
+
 }
