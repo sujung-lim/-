@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const memo2 = {}
+        memo2['one'] = '메모1'
+        memo2['two'] = '메모2'
+
+        localStorage.setItem('메모2', JSON.stringify(memo2))//{"one": "메모1", "two": "메모2"}
+        /* stringify라는 영어 단어가 있는 것인지는 모르겠지만 어쨌든 string화 해주는 것 같다. 
+        그래서 객체를 JSON string으로 보여주는 것 같다. */
+
+        console.log(memo2);//{one:'메모1', two:'메모2'}
+        /* 정확한 이해를 위해 memo2를 콘솔 창에 쳐보니 로직이 확 와닿는 느낌이다 */
+
+        console.log(localStorage.getItem('메모2'));
+        console.log(JSON.parse(localStorage.getItem('메모2')))
+        /* parse는 stringify의 반대 역할을 한다. JSON string을 JavaScript object로 바꿔준다 */
+    </script>
+</body>
+
+</html>
