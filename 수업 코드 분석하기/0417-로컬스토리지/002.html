@@ -112,7 +112,7 @@
                 display.appendChild(deleteMemoBtn);
             }
 
-            /* 위 강사님의 코드에서는 왜 for let 을 사용하지 않고
+            /* 궁금증 1: 위 강사님의 코드에서는 왜 for let 을 사용하지 않고
             for of 를 사용한 것일까? */
 
             /* 우선 내가 알아본 바로는 for...of loop와 for...let loop의
@@ -121,6 +121,19 @@
             * for...of loop는 allMemo 배열의 각 항목에 대해 반복되며
             * 각 항목의 루프 내에서 code block을 실행한다 
             * 이것은 인덱스 변수를 추적하지 않고도 코드가 수행하는 것을 쉽게 이해할 수 있다*/
+
+            /* 궁금증 2: for loop 에서는 let 을 사용하고 for...of loop 에서는 const를 사용하는 이유는? */
+
+            /* for...of loop 안에서의 let, const의 주요 차이점은 
+            * 루프 변수를 루프 바디 내에서 재할당 할 수 있는지 여부입니다.
+            * const를 사용하여 루프 내에서 변수를 다시 할당할 수 없게 하고, 루프 변수는 block scope이며 값은 오직 읽기 위함입니다.
+            * const를 사용하면 버그로 이어질 수 있는 실수로 재할당되지 않도록 방지할 수 있습니다. 
+            * for (const item of allMemo) 뿐만아니라
+            * 
+            * for (let item of allMemo)로도 사용이 가능하다고 합니다 
+            * let을 사용하면 루프 내에서 변수를 다시 할당할 수 있습니다.
+            * 루프 변수는 여전히 블록 스코프이지만 값은 가변적입니다.
+            * 이 문은 루프 변수를 수정해야 하는 경우에 유용하다고 합니다.*/
         }
 
         function remove() {
