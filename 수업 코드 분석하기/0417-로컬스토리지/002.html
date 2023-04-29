@@ -141,6 +141,18 @@
             console.log(allMemo);
             const idx = allMemo.find(
                 (item) => item.len == event.srcElement.id
+                /* item.len == event.srcElement.id는 
+                * 버튼 id == 클릭된 id 로 이해해도 되는 것일까? 
+                * 직접적으로 이처럼 의미하는 것은 아니라고 합니다. 
+                * item.len은 allMemo 배열에 있는 len 속성이며 event.srcElement.id는 클릭 이벤트를 시작한 버튼의 id 속성이라고 합니다.
+                * 그래서 이 코드는 allMemo 배열에 있는 메모 항목의 len 속성이, 클릭한 삭제 버튼의 id 속성과 돌인한지 확인하는 것이라고 합니다.*/
+
+                /* event는 Web APIs 중 하나인 전역 객체이며 처리 중인 이벤트를 나타냅니다.
+                * srcElement란 sorce element란 뜻으로 해당 이벤트를 실행시키는 요소를 참조하는 속성이며 여기서는 삭제 버튼에 해당됩니다.
+                * deleteBtn의 id 속성은 'item.len' 값으로 설정됩니다. 
+                * `allMemo.find` 메서드는 클릭한 삭제 버튼의 `id`와 일치하는 `len` 속성을 가진 메모 항목을 `allMemo` 배열에서 찾기 위해 `event.srcElement.id`를 사용합니다. */
+
+                /* mdn 문서에 따르면 event.srcElement는 더이상 사용을 권장하지 않고 대신 event.target이 많이 사용된다고 합니다.*/
             );
             if (idx) {
                 allMemo.splice(
