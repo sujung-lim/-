@@ -1,4 +1,4 @@
-<!-- 수업 코드를 직접 분석한 내용과 의문점, 그리고 그 의문점을 해결한 내용들을 
+<!-- 수업 코드를 분석한 내용과 의문점, 그리고 그 의문점을 해결한 내용들을 
 전부 /* */ 주석에 정리하였습니다  -->
 
 
@@ -49,8 +49,8 @@
         <section id="display"></section>
     </main>
     <script>
-        let allMemo = JSON.parse(localStorage.getItem("allMemo"));/* 만약 로컬스토리지에 키 값이 없다면 allMemo의 값은 null이 될 것이다 */
-        allMemo = allMemo ?? [];
+        let allMemo = JSON.parse(localStorage.getItem("allMemo"));
+        allMemo = allMemo ?? [];/* 만약 로컬스토리지에 키 값이 없다면 allMemo의 값은 null이 될 것이다 */
         render();
 
         function saveNote() {
@@ -58,7 +58,7 @@
             const content = document.getElementById("content").value;
 
             allMemo.push({ title, content, len: allMemo.length });
-            /* 왜 title, content는 len처럼 프로퍼티와 값을 둘 다 지정해주지 않고 프로퍼티만 지정했는지 의문이 들었다. 
+            /* 의문점: 왜 title, content는 len처럼 프로퍼티와 값을 둘 다 지정해주지 않고 프로퍼티만 지정했는지 궁금하다.
             내가 생각하는 로직 대로라면 {title: title.value, content: content:value, len: allMemo.length} 라고 작성해야 할 것 같은데 이렇게 작성한 이유는 
             이미 title이란 변수 안에 title.value가 들어있고, content란 변수 안에 content.value가 들어있기 때문에 굳이 길게 풀을 필요가 없는 것일까? 
             찾아보니 프로퍼티의 이름이 변수의 이름과 동일할 경우 뒤에 값을 넣는 것을 생략하고 변수의 이름에서 그 값을 유추해 가져올 수 있다고 한다 */
@@ -125,39 +125,50 @@
             /* 궁금증 2: for loop 에서는 let 을 사용하고 for...of loop 에서는 const를 사용하는 이유는? */
 
             /* for...of loop 안에서의 let, const의 주요 차이점은 
-            * 루프 변수를 루프 바디 내에서 재할당 할 수 있는지 여부입니다.
-            * const를 사용하여 루프 내에서 변수를 다시 할당할 수 없게 하고, 루프 변수는 block scope이며 값은 오직 읽기 위함입니다.
-            * const를 사용하면 버그로 이어질 수 있는 실수로 재할당되지 않도록 방지할 수 있습니다. 
+            * 루프 변수를 루프 바디 내에서 재할당 할 수 있는지 여부이다.
+            * const를 사용하여 루프 내에서 변수를 다시 할당할 수 없게 하고, 루프 변수는 block scope이며 값은 오직 읽기 위함이다.
+            * const를 사용하면 버그로 이어질 수 있는 실수로 재할당되지 않도록 방지할 수 있다. 
             * for (const item of allMemo) 뿐만아니라
             * 
-            * for (let item of allMemo)로도 사용이 가능하다고 합니다 
-            * let을 사용하면 루프 내에서 변수를 다시 할당할 수 있습니다.
-            * 루프 변수는 여전히 블록 스코프이지만 값은 가변적입니다.
-            * 이 문은 루프 변수를 수정해야 하는 경우에 유용하다고 합니다.*/
+            * for (let item of allMemo)로도 사용이 가능하다고 한다. 
+            * let을 사용하면 루프 내에서 변수를 다시 할당할 수 있다.
+            * 루프 변수는 여전히 블록 스코프이지만 값은 가변적이다.
+            * 이 문은 루프 변수를 수정해야 하는 경우에 유용하다고 한다.*/
         }
 
         function remove() {
             console.log(event.srcElement.id);
             console.log(allMemo);
+            /* 배열의 객체가 사라지면 인덱스도 앞으로 하나씩 앞당겨지는 줄 알았는데 이 코드를 통해 
+            객체를 지우더라도 처음의 인덱스를 기억하고 있다는 사실을 알게 되었다. */
             const idx = allMemo.find(
                 (item) => item.len == event.srcElement.id
                 /* item.len == event.srcElement.id는 
                 * 버튼 id == 클릭된 id 로 이해해도 되는 것일까? 
-                * 직접적으로 이처럼 의미하는 것은 아니라고 합니다. 
-                * item.len은 allMemo 배열에 있는 len 속성이며 event.srcElement.id는 클릭 이벤트를 시작한 버튼의 id 속성이라고 합니다.
-                * 그래서 이 코드는 allMemo 배열에 있는 메모 항목의 len 속성이, 클릭한 삭제 버튼의 id 속성과 돌인한지 확인하는 것이라고 합니다.*/
+                * 직접적으로 이처럼 의미하는 것은 아니라고 한다.
+                * item.len은 allMemo 배열에 있는 len 속성이며 event.srcElement.id는 클릭 이벤트를 시작한 버튼의 id 속성이다.
+                * 그래서 이 코드는 allMemo 배열에 있는 메모 항목의 len 속성이, 클릭한 삭제 버튼의 id 속성과 돌인한지 확인하는 것이다.*/
 
-                /* event는 Web APIs 중 하나인 전역 객체이며 처리 중인 이벤트를 나타냅니다.
-                * srcElement란 sorce element란 뜻으로 해당 이벤트를 실행시키는 요소를 참조하는 속성이며 여기서는 삭제 버튼에 해당됩니다.
-                * deleteBtn의 id 속성은 'item.len' 값으로 설정됩니다. 
-                * `allMemo.find` 메서드는 클릭한 삭제 버튼의 `id`와 일치하는 `len` 속성을 가진 메모 항목을 `allMemo` 배열에서 찾기 위해 `event.srcElement.id`를 사용합니다. */
+                /* event는 Web APIs 중 하나인 전역 객체이며 처리 중인 이벤트를 나타낸다.
+                * srcElement란 sorce element란 뜻으로 해당 이벤트를 실행시키는 요소를 참조하는 속성이며 여기서는 삭제 버튼에 해당된다.
+                * deleteBtn의 id 속성은 'item.len' 값으로 설정된다.
+                * `allMemo.find` 메서드는 클릭한 삭제 버튼의 `id`와 일치하는 `len` 속성을 가진 메모 항목을 `allMemo` 배열에서 찾기 위해 `event.srcElement.id`를 사용한다. */
 
-                /* mdn 문서에 따르면 event.srcElement는 더이상 사용을 권장하지 않고 대신 event.target이 많이 사용된다고 합니다.*/
+                /* mdn 문서에 따르면 event.srcElement는 더이상 사용을 권장하지 않고 대신 event.target이 많이 사용된다. */
             );
             if (idx) {
                 allMemo.splice(
+                    /* 의문점: splice은 배열의 속성이다 그런데 allMemo가 배열이라는 것은 어떻게 아는 것일까? 
+                    * allMemo라는 변수를 선언하여 배열을 할당한 코드는 본 적이 없는 것 같은데 어떻게 splice 메서드를 사용할 수 있는 걸까? 
+                    * 그 이유는 앞서 JSON.parse()에 allMemo라는 key를 넣어 스토리지에 저장을 했고 JSON.parse가 array를 반환하기 때문이다. */
                     allMemo.findIndex((item) => item.len == idx.len),
                     1
+                    /* findIndex 메서드를 사용하여 len속성이 idx.len(앞에서 찾은 메모 항목)과 일치하는 메모 item의 인덱스를 allMemo 배열에서 찾는다.
+                    * findIndex 메서드는 제공된 function 을 충족하는 배열의 첫 번째 요소의 인덱스를 반환한다.
+                    * 이 경우 제거할 메모 item의 인덱스를 반환한다.
+                    * 의문점: 왜 위에서 이미 target된 것과 같은지 찾았는데 또 찾는 것인지 이해가 가지 않는다
+                    * 분석한 바로는 find메서드는 클릭한 버튼에 해당하는 메모 객체를 찾는 것이고
+                    * findIndex메서드는 allMemo 배열에서 해당 메모(클릭된) 객체의 인덱스를 찾는 것이다 */
                 );
             }
             localStorage.setItem("allMemo", JSON.stringify(allMemo));
